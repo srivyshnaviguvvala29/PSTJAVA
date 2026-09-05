@@ -1,0 +1,26 @@
+class Solution {
+    public boolean halvesAreAlike(String s) {
+
+        int count = 0;
+        int n = s.length() / 2;
+
+        for (int i = 0; i < n; i++) {
+
+            // First half
+            if ("aeiouAEIOU".indexOf(s.charAt(i)) != -1) {
+                count++;
+            }
+
+            // Second half
+            if ("aeiouAEIOU".indexOf(s.charAt(i + n)) != -1) {
+                count--;
+            }
+        }
+
+        return count == 0;
+    }
+}
+##sample input
+Input: s = "book"
+Output: true
+Explanation: a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
