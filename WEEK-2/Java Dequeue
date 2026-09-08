@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        // Add elements
+        deque.addFirst(10);
+        deque.addLast(20);
+        deque.addFirst(5);
+
+        System.out.println(deque);
+    }
+}
+##sample output
+[5, 10, 20]
