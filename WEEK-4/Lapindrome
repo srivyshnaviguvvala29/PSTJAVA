@@ -1,0 +1,67 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int T = sc.nextInt();
+
+        while (T-- > 0) {
+
+            String s = sc.next();
+
+            int n = s.length();
+            int mid = n / 2;
+
+            String firstHalf = s.substring(0, mid);
+
+            String secondHalf;
+
+            if (n % 2 == 0) {
+                secondHalf = s.substring(mid);
+            } else {
+                secondHalf = s.substring(mid + 1);
+            }
+
+            int[] frequency = new int[26];
+            for (char ch : firstHalf.toCharArray()) {
+                frequency[ch - 'a']++;
+            }
+            for (char ch : secondHalf.toCharArray()) {
+                frequency[ch - 'a']--;
+            }
+
+            boolean isLapindrome = true;
+            for (int count : frequency) {
+                if (count != 0) {
+                    isLapindrome = false;
+                    break;
+                }
+            }
+
+            if (isLapindrome) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+
+        sc.close();
+    }
+}
+##sample input
+6
+gaga
+abcde
+rotor
+xyzxy
+abbaab
+ababc
+##sample output
+YES
+NO
+YES
+YES
+NO
+NO
